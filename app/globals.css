@@ -75,6 +75,16 @@
   }
 }
 
+/* Logo dark mode filter - inverts dark colors to light in dark mode */
+.logo-adaptive {
+  filter: none;
+  transition: filter 0.3s ease;
+}
+
+.dark .logo-adaptive {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 /* Custom animations */
 @keyframes bounce {
   0%,

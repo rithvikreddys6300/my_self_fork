@@ -85,10 +85,10 @@ export default async function ProfilePage({
       <div className="text-center mt-8 mb-4">
         <Link
           href={`/?ref=${username}`}
-          className="text-design-gray font-mono text-sm"
+          className="text-gray-600 dark:text-gray-300 font-mono text-sm"
         >
           Made by{' '}
-          <span className="text-design-black underline underline-offset-2">
+          <span className="text-gray-900 dark:text-white underline underline-offset-2">
             Self.so
           </span>
         </Link>

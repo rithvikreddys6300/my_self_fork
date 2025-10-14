@@ -92,14 +92,14 @@ export default function UploadPageClient() {
               )
             }
             title={
-              <span className="text-base font-bold text-center text-design-black">
+              <span className="text-base font-bold text-center text-gray-900 dark:text-white">
                 {fileState.status !== 'empty'
                   ? fileState.file.name
                   : 'Upload PDF'}
               </span>
             }
             description={
-              <span className="text-xs font-light text-center text-design-gray">
+              <span className="text-xs font-light text-center text-gray-600 dark:text-gray-300">
                 {fileState.status !== 'empty'
                   ? `${(fileState.file.size / 1024 / 1024).toFixed(2)} MB`
                   : 'Resume or LinkedIn'}
@@ -122,13 +122,13 @@ export default function UploadPageClient() {
               <span className="ml-1 inline-block w-4 h-4 rounded-full border border-gray-300 items-center justify-center text-xs cursor-help">
                 i
               </span>
-              <p className="text-xs text-center text-design-gray whitespace-normal">
+              <p className="text-xs text-center text-gray-600 dark:text-gray-300 whitespace-normal">
                 How to upload LinkedIn profile
               </p>
             </Button>
           </DialogTrigger>
           <DialogContent className="w-full max-w-[652px] text-center font-mono !p-0 gap-0">
-            <DialogTitle className="font-mono text-base text-center text-design-gray px-7 py-4">
+            <DialogTitle className="font-mono text-base text-center text-gray-600 dark:text-gray-300 px-7 py-4">
               Go to your profile → Click on “Resources” → Then “Save to PDF”
             </DialogTitle>
             <img src="/linkedin-save-to-pdf.png" className="h-auto w-full" />
@@ -138,7 +138,7 @@ export default function UploadPageClient() {
       <div className="font-mono">
         <div className="relative">
           <Button
-            className="px-4 py-3 h-auto bg-design-black hover:bg-design-black/95"
+            className="px-4 py-3 h-auto bg-gray-900 dark:bg-gray-100 hover:bg-gray-900 dark:bg-gray-100/95"
             disabled={fileState.status === 'empty' || isUpdating}
             onClick={() => router.push('/pdf')}
           >

@@ -30,7 +30,7 @@ export function ThemeToggle() {
       variant="outline"
       size="sm"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="w-9 h-9 p-0 border-gray-300 hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800"
+      className="w-9 h-9 p-0 border-gray-300 hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-900/95 dark:hover:bg-gray-100/95"
     >
       {isDark ? (
         <Sun className="h-[1.2rem] w-[1.2rem] text-orange-500" />

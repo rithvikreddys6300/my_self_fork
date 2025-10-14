@@ -40,7 +40,7 @@ export default function PreviewActionbar({
             <img
               src="/link-icon.png"
               className={cn(
-                'w-4 h-4 text-design-black ',
+                'w-4 h-4 text-gray-900 dark:text-white ',
                 status === 'live' && 'cursor-pointer'
               )}
               onClick={() => {
@@ -50,7 +50,7 @@ export default function PreviewActionbar({
                 toast.success('Copied link to your website');
               }}
             />
-            <p className="text-sm text-design-black">{prefix}</p>
+            <p className="text-sm text-gray-900 dark:text-white">{prefix}</p>
           </div>
 
           <div className="overflow-hidden rounded bg-white border-[0.5px] border-neutral-300 flex flex-row md:w-80 w-full">
@@ -113,8 +113,8 @@ export default function PreviewActionbar({
               onClick={handleStatusChange}
               className={`flex items-center min-w-[100px] min-h-8 gap-1.5 px-3 py-1.5 h-auto ${
                 status === 'draft'
-                  ? 'bg-design-black hover:bg-[#333333] text-[#fcfcfc]'
-                  : 'bg-design-white text-design-black hover:bg-gray-100'
+                  ? 'bg-gray-900 dark:bg-gray-100 hover:bg-gray-900/95 dark:hover:bg-gray-100/95 text-white dark:text-gray-900'
+                  : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-100'
               }`}
             >
               {isChangingStatus ? (
