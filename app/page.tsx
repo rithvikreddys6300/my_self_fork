@@ -17,11 +17,11 @@ export default function Home() {
             {/* Left side - Call to action */}
             <div className="w-full md:w-1/2 max-w-[378px] flex flex-col justify-center items-center md:items-start ">
               <div className="max-w-md text-center md:text-left">
-                <div className="inline-block font-mono gap-2.5 px-2.5 py-1.5 rounded bg-gray-100 text-sm mb-5 text-design-gray">
+                <div className="inline-block font-mono gap-2.5 px-2.5 py-1.5 rounded bg-gray-100 dark:bg-gray-800 text-sm mb-5 text-gray-600 dark:text-gray-300">
                   100% free & open source
                 </div>
 
-                <h1 className="text-[32px] font-bold mb-4 flex items-center justify-center md:justify-start gap-4 flex-wrap text-design-black font-mono leading-4">
+                <h1 className="text-[32px] font-bold mb-4 flex items-center justify-center md:justify-start gap-4 flex-wrap text-gray-900 dark:text-white font-mono leading-4">
                   <span>LinkedIn</span>
                   <img
                     src="/right-arrow.png"
@@ -44,14 +44,14 @@ export default function Home() {
                   />
                 </h1>
 
-                <p className="text-base text-gray-600 mb-[30px] font-mono text-center md:text-left">
+                <p className="text-base text-gray-600 dark:text-gray-300 mb-[30px] font-mono text-center md:text-left">
                   Turn your resume/LinkedIn
                   <br /> into a professional website.
                 </p>
 
                 <div className="relative flex flex-col items-center font-mono w-full md:w-fit">
                   <Link href="/upload">
-                    <Button className="relative group flex items-center bg-design-black hover:bg-design-black/95 text-white px-6 py-3 h-auto text-base overflow-hidden">
+                    <Button className="relative group flex items-center bg-gray-900 hover:bg-gray-900/95 dark:bg-gray-100 dark:hover:bg-gray-100/95 text-white dark:text-gray-900 px-6 py-3 h-auto text-base overflow-hidden">
                       <div className="h-[120px] w-10 bg-gradient-to-r from-white/10 via-white/50 to-white/10 absolute blur-sm -rotate-45 -left-16 group-hover:left-[150%] duration-500 delay-200" />
                       <img
                         src="/sparkle.png"
@@ -63,7 +63,7 @@ export default function Home() {
                     </Button>
                   </Link>
 
-                  <p className="text-sm text-gray-500 mt-4 text-center">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-4 text-center">
                     Takes 1 minute!
                   </p>
                 </div>

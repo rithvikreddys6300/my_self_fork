@@ -16,6 +16,8 @@ const config: Config = {
           white: '#ffffff',
           gray: '#5d5d5d',
           resume: '#6B7280',
+          // Dark mode variants
+          'gray-dark': '#a1a1aa', // Lighter gray for dark mode
         },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
