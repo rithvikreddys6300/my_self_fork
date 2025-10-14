@@ -4,6 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
 import { ReactQueryClientProvider } from '@/components/ReactQueryClientProvider';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import { Metadata } from 'next';
 import PlausibleProvider from 'next-plausible';
 
@@ -28,21 +29,28 @@ export default function RootLayout({
     <ClerkProvider>
       <PlausibleProvider domain="self.so">
         <ReactQueryClientProvider>
-          <html lang="en">
-            <head>
-              {/* {process.env.NODE_ENV === "development" && (
-              <script
-                crossOrigin="anonymous"
-                src="//unpkg.com/react-scan/dist/auto.global.js"
-              />
-            )} */}
-              {/* rest of your scripts go under */}
-            </head>
-            <body className={`${mono.className} min-h-screen flex flex-col`}>
-              <main className="flex-1 flex flex-col">{children}</main>
-              <Toaster richColors position="bottom-center" />
-            </body>
-          </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <html lang="en">
+              <head>
+                {/* {process.env.NODE_ENV === "development" && (
+                <script
+                  crossOrigin="anonymous"
+                  src="//unpkg.com/react-scan/dist/auto.global.js"
+                />
+              )} */}
+                {/* rest of your scripts go under */}
+              </head>
+              <body className={`${mono.className} min-h-screen flex flex-col`}>
+                <main className="flex-1 flex flex-col">{children}</main>
+                <Toaster richColors position="bottom-center" />
+              </body>
+            </html>
+          </ThemeProvider>
         </ReactQueryClientProvider>
       </PlausibleProvider>
     </ClerkProvider>
