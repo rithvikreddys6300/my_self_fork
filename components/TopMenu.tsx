@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export function TopMenu() {
   return (
@@ -10,7 +11,8 @@ export function TopMenu() {
           <img src="/logo.svg" alt="Self.so Logo" className="h-[30px] w-auto" />
         </Link>
 
-        <div>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
           <SignedIn>
             {/* User is signed in */}
             <UserButton />
