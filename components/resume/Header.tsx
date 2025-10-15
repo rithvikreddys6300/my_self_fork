@@ -11,12 +11,23 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ResumeDataSchemaType } from '@/lib/resume';
 import { useMemo } from 'react';
 
+/**
+ * Props interface for the SocialButton component
+ */
 interface SocialButtonProps {
   href: string;
   icon: React.ElementType;
   label: string;
 }
 
+/**
+ * Social media button component
+ * Renders a clickable icon button for social media profiles and contact methods
+ * 
+ * @param href - The URL or contact link
+ * @param icon - Lucide icon component to display
+ * @param label - Accessible label for screen readers
+ */
 function SocialButton({ href, icon: Icon, label }: SocialButtonProps) {
   return (
     <Button className="size-8" variant="outline" size="icon" asChild>
@@ -24,7 +35,7 @@ function SocialButton({ href, icon: Icon, label }: SocialButtonProps) {
         href={
           href.startsWith('mailto:') || href.startsWith('tel:')
             ? href
-            : `${href}${href.includes('?') ? '&' : '?'}ref=selfso`
+            : `${href}${href.includes('?') ? '&' : '?'}ref=resume-site`
         }
         aria-label={label}
         target="_blank"
@@ -37,22 +48,53 @@ function SocialButton({ href, icon: Icon, label }: SocialButtonProps) {
 }
 
 /**
- * Header component displaying personal information and contact details
+ * Props interface for the Header component
  */
-export function Header({
-  header,
-  picture,
-}: {
+interface HeaderProps {
+  /** Header section data from resume */
   header: ResumeDataSchemaType['header'];
+  /** Optional profile picture URL */
   picture?: string;
-}) {
+}
+
+/**
+ * Resume header component
+ * 
+ * Displays the main personal information section of a resume including:
+ * - Name and professional tagline
+ * - Location information
+ * - Contact information (social media, email, phone)
+ * - Profile picture
+ * 
+ * The component automatically formats social media URLs and provides
+ * accessible alternatives for print and screen readers.
+ * 
+ * @param header - Resume header data containing personal information
+ * @param picture - Optional profile picture URL
+ */
+export function Header({ header, picture }: HeaderProps) {
+  /**
+   * Ensures URLs have proper protocol prefix
+   * @param stringToFix - URL string that may be missing protocol
+   * @returns Properly formatted URL or undefined
+   */
   const prefixUrl = (stringToFix?: string) => {
     if (!stringToFix) return undefined;
     const url = stringToFix.trim();
     return url.startsWith('http') ? url : `https://${url}`;
   };
 
+  /**
+   * Memoized social media links with proper formatting
+   * Converts usernames to full URLs and handles various input formats
+   */
   const socialLinks = useMemo(() => {
+    /**
+     * Formats social media URLs based on platform conventions
+     * @param url - Raw URL or username
+     * @param platform - Social media platform type
+     * @returns Formatted URL or undefined
+     */
     const formatSocialUrl = (
       url: string | undefined,
       platform: 'github' | 'twitter' | 'linkedin'
@@ -93,8 +135,9 @@ export function Header({
   ]);
 
   return (
-    <header className="flex items-start md:items-center justify-between gap-4 ">
+    <header className="flex items-start md:items-center justify-between gap-4">
       <div className="flex-1 space-y-1.5">
+        {/* Name and tagline */}
         <h1 className="text-2xl font-bold" id="resume-name">
           {header.name}
         </h1>
@@ -105,20 +148,24 @@ export function Header({
           {header.shortAbout}
         </p>
 
-        <p className="max-w-md items-center text-pretty font-mono text-xs text-foreground">
-          <a
-            className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline text-[#9CA0A8]"
-            href={`https://www.google.com/maps/search/${encodeURIComponent(
-              header.location || ''
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Location: ${header.location}`}
-          >
-            {header.location}
-          </a>
-        </p>
+        {/* Location information */}
+        {header.location && (
+          <p className="max-w-md items-center text-pretty font-mono text-xs text-foreground">
+            <a
+              className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline text-[#9CA0A8]"
+              href={`https://www.google.com/maps/search/${encodeURIComponent(
+                header.location
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Location: ${header.location}`}
+            >
+              {header.location}
+            </a>
+          </p>
+        )}
 
+        {/* Interactive contact buttons (hidden in print) */}
         <div
           className="flex gap-x-1 pt-1 font-mono text-sm text-design-resume print:hidden"
           role="list"
@@ -168,6 +215,7 @@ export function Header({
           )}
         </div>
 
+        {/* Print-friendly contact information */}
         <div
           className="hidden gap-x-2 font-mono text-sm text-design-resume print:flex print:text-[12px]"
           aria-label="Print contact information"
@@ -205,6 +253,7 @@ export function Header({
         </div>
       </div>
 
+      {/* Profile picture */}
       <Avatar className="size-20 md:size-28" aria-hidden="true">
         <AvatarImage src={picture} alt={`${header.name}'s profile picture`} />
         <AvatarFallback>
