@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { SimpleToggle } from '@/components/ui/simple-toggle';
 
 export function TopMenu() {
   return (
@@ -10,13 +11,14 @@ export function TopMenu() {
           <img src="/logo.svg" alt="Self.so Logo" className="h-[30px] w-auto" />
         </Link>
 
-        <div>
+        <div className="flex items-center gap-3">
+          <SimpleToggle />
           <SignedIn>
             {/* User is signed in */}
             <UserButton />
           </SignedIn>
           <SignedOut>
-            <div className="flex flex-row gap-3 font-mono ">
+            <div className="flex flex-row gap-3 font-mono">
               <a
                 href="https://github.com/nutlope/self.so"
                 target="_blank"
@@ -37,7 +39,7 @@ export function TopMenu() {
               <Link href="/upload">
                 <Button
                   variant="default"
-                  className="text-sm font-medium py-2 px-4 bg-design-black hover:bg-design-black/95"
+                  className="text-sm font-medium py-2 px-4 bg-foreground hover:bg-foreground/95 text-background"
                 >
                   Sign up
                 </Button>

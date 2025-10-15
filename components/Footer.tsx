@@ -7,7 +7,7 @@ export function Footer() {
           <a
             target="_blank"
             href="https://togetherai.link"
-            className="text-design-black underline underline-offset-2"
+            className="text-foreground underline underline-offset-2"
           >
             Together.ai
           </a>{' '}
@@ -15,7 +15,7 @@ export function Footer() {
           <a
             target="_blank"
             href="https://togetherai.link"
-            className="text-design-black underline underline-offset-2"
+            className="text-foreground underline underline-offset-2"
           >
             Llama 3.3
           </a>

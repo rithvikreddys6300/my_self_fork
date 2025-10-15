@@ -88,7 +88,7 @@ export default async function ProfilePage({
           className="text-design-gray font-mono text-sm"
         >
           Made by{' '}
-          <span className="text-design-black underline underline-offset-2">
+          <span className="text-foreground underline underline-offset-2">
             Self.so
           </span>
         </Link>
