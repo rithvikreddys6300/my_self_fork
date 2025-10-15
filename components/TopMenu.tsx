@@ -39,7 +39,7 @@ export function TopMenu() {
               <Link href="/upload">
                 <Button
                   variant="default"
-                  className="text-sm font-medium py-2 px-4 bg-design-black hover:bg-design-black/95"
+                  className="text-sm font-medium py-2 px-4 bg-foreground hover:bg-foreground/95 text-background"
                 >
                   Sign up
                 </Button>

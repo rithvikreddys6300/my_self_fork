@@ -92,7 +92,7 @@ export default function UploadPageClient() {
               )
             }
             title={
-              <span className="text-base font-bold text-center text-design-black">
+              <span className="text-base font-bold text-center text-foreground dark:text-foreground">
                 {fileState.status !== 'empty'
                   ? fileState.file.name
                   : 'Upload PDF'}
@@ -138,7 +138,7 @@ export default function UploadPageClient() {
       <div className="font-mono">
         <div className="relative">
           <Button
-            className="px-4 py-3 h-auto bg-design-black hover:bg-design-black/95"
+            className="px-4 py-3 h-auto bg-foreground hover:bg-foreground/95 text-background"
             disabled={fileState.status === 'empty' || isUpdating}
             onClick={() => router.push('/pdf')}
           >

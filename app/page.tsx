@@ -21,7 +21,7 @@ export default function Home() {
                   100% free & open source
                 </div>
 
-                <h1 className="text-[32px] font-bold mb-4 flex items-center justify-center md:justify-start gap-4 flex-wrap text-design-black font-mono leading-4">
+                <h1 className="text-[32px] font-bold mb-4 flex items-center justify-center md:justify-start gap-4 flex-wrap text-foreground font-mono leading-4">
                   <span>LinkedIn</span>
                   <img
                     src="/right-arrow.png"
@@ -51,7 +51,7 @@ export default function Home() {
 
                 <div className="relative flex flex-col items-center font-mono w-full md:w-fit">
                   <Link href="/upload">
-                    <Button className="relative group flex items-center bg-design-black hover:bg-design-black/95 text-white px-6 py-3 h-auto text-base overflow-hidden">
+                    <Button className="relative group flex items-center bg-foreground hover:bg-foreground/95 text-background px-6 py-3 h-auto text-base overflow-hidden">
                       <div className="h-[120px] w-10 bg-gradient-to-r from-white/10 via-white/50 to-white/10 absolute blur-sm -rotate-45 -left-16 group-hover:left-[150%] duration-500 delay-200" />
                       <img
                         src="/sparkle.png"

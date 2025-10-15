@@ -27,7 +27,7 @@ export const PopupSiteLive = ({
             className="h-[41px] w-[52px]"
           />
 
-          <h3 className="text-2xl font-medium text-design-black mb-1 font-sans">
+          <h3 className="text-2xl font-medium text-foreground mb-1 font-sans">
             Your website is now live!
           </h3>
 
@@ -41,20 +41,20 @@ export const PopupSiteLive = ({
                   navigator.clipboard.writeText(websiteUrl);
                   toast.success('Copied link to your website');
                 }}
-                className="bg-design-black rounded-md hover:bg-gray-800 p-2 text-white flex flex-row gap-2 items-center justify-center"
+                className="bg-foreground rounded-md hover:bg-foreground/90 p-2 text-background flex flex-row gap-2 items-center justify-center"
                 title="Copy URL"
               >
                 <Copy className="h-5 w-5" />
-                <span className="text-white">Copy URL</span>
+                <span className="text-background">Copy URL</span>
               </button>
               <a
                 href={websiteUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-design-black hover:bg-gray-800 p-2 text-white rounded-md flex flex-row gap-2 items-center justify-center"
+                className="bg-foreground hover:bg-foreground/90 p-2 text-background rounded-md flex flex-row gap-2 items-center justify-center"
               >
                 <SquareArrowOutUpRight className="h-5 w-5" />
-                <span className="text-white">Visit Site</span>
+                <span className="text-background">Visit Site</span>
               </a>
             </div>
           </div>
