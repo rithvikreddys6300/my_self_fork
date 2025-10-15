@@ -7,16 +7,38 @@ import { ReactQueryClientProvider } from '@/components/ReactQueryClientProvider'
 import { ThemeProvider } from '@/components/theme-provider';
 import { Metadata } from 'next';
 import PlausibleProvider from 'next-plausible';
+import { siteConfig } from '@/config/site';
 
 const mono = JetBrains_Mono({ subsets: ['latin'] });
 
+/**
+ * Site metadata configuration
+ * Dynamically generated from site config
+ */
 export const metadata: Metadata = {
-  metadataBase: new URL('https://self.so'),
-  title: 'Self.so - Resume to Website',
-  description:
-    'LinkedIn to Website in one click! Powered by Together AI and Llama 3.3',
+  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.displayName,
+  description: siteConfig.description,
   openGraph: {
-    images: '/og.png',
+    title: siteConfig.displayName,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en-US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.displayName,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -27,7 +49,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <PlausibleProvider domain="self.so">
+      <PlausibleProvider domain={siteConfig.analytics?.domain || "localhost"}>
         <ReactQueryClientProvider>
           <html lang="en" suppressHydrationWarning>
             <head>

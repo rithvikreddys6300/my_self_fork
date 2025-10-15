@@ -4,8 +4,15 @@ import { TopMenu } from '../components/TopMenu';
 import { Footer } from '../components/Footer';
 import { BorderBeam } from '@/components/ui/BorderBeam';
 import { BlurFade } from '@/components/ui/BlurFade';
+import { siteConfig } from '@/config/site';
 
+/**
+ * Home page component
+ * Displays the main landing page with call-to-action for resume upload
+ */
 export default function Home() {
+  const { features, branding } = siteConfig;
+
   return (
     <>
       <TopMenu />
@@ -17,9 +24,11 @@ export default function Home() {
             {/* Left side - Call to action */}
             <div className="w-full md:w-1/2 max-w-[378px] flex flex-col justify-center items-center md:items-start ">
               <div className="max-w-md text-center md:text-left">
-                <div className="inline-block font-mono gap-2.5 px-2.5 py-1.5 rounded bg-gray-100 text-sm mb-5 text-design-gray">
-                  100% free & open source
-                </div>
+                {branding.freeAndOpenSource && (
+                  <div className="inline-block font-mono gap-2.5 px-2.5 py-1.5 rounded bg-gray-100 text-sm mb-5 text-design-gray">
+                    100% free & open source
+                  </div>
+                )}
 
                 <h1 className="text-[32px] font-bold mb-4 flex items-center justify-center md:justify-start gap-4 flex-wrap text-foreground font-mono leading-4">
                   <span>LinkedIn</span>
@@ -45,28 +54,29 @@ export default function Home() {
                 </h1>
 
                 <p className="text-base text-gray-600 mb-[30px] font-mono text-center md:text-left">
-                  Turn your resume/LinkedIn
-                  <br /> into a professional website.
+                  {features.resumeUpload.description}
                 </p>
 
-                <div className="relative flex flex-col items-center font-mono w-full md:w-fit">
-                  <Link href="/upload">
-                    <Button className="relative group flex items-center bg-foreground hover:bg-foreground/95 text-background px-6 py-3 h-auto text-base overflow-hidden">
-                      <div className="h-[120px] w-10 bg-gradient-to-r from-white/10 via-white/50 to-white/10 absolute blur-sm -rotate-45 -left-16 group-hover:left-[150%] duration-500 delay-200" />
-                      <img
-                        src="/sparkle.png"
-                        alt="Sparkle Icon"
-                        className="h-5 w-5 mr-2 relative"
-                      />
-                      <span className="relative">Upload Resume</span>
-                      <BorderBeam colorFrom="#5d5d5d" colorTo="#ffffff" />
-                    </Button>
-                  </Link>
+                {features.resumeUpload.enabled && (
+                  <div className="relative flex flex-col items-center font-mono w-full md:w-fit">
+                    <Link href="/upload">
+                      <Button className="relative group flex items-center bg-foreground hover:bg-foreground/95 text-background px-6 py-3 h-auto text-base overflow-hidden">
+                        <div className="h-[120px] w-10 bg-gradient-to-r from-white/10 via-white/50 to-white/10 absolute blur-sm -rotate-45 -left-16 group-hover:left-[150%] duration-500 delay-200" />
+                        <img
+                          src="/sparkle.png"
+                          alt="Sparkle Icon"
+                          className="h-5 w-5 mr-2 relative"
+                        />
+                        <span className="relative">{features.resumeUpload.callToAction}</span>
+                        <BorderBeam colorFrom="#5d5d5d" colorTo="#ffffff" />
+                      </Button>
+                    </Link>
 
-                  <p className="text-sm text-gray-500 mt-4 text-center">
-                    Takes 1 minute!
-                  </p>
-                </div>
+                    <p className="text-sm text-gray-500 mt-4 text-center">
+                      {features.resumeUpload.processingTime}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -77,7 +87,7 @@ export default function Home() {
                 <img
                   src="/cv-home.png"
                   className="relative w-full max-w-[500px] h-full object-cover overflow-hidden"
-                  alt="CV Website Preview"
+                  alt="Website Preview"
                 />
               </BlurFade>
             </div>
